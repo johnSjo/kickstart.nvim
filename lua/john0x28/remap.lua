@@ -9,4 +9,6 @@ vim.keymap.set('n', '˚', ':m-2<CR>==', { silent = true })
 -- vim.keymap.set('v', '∆', ':m+1<CR>==gv', { silent = true })
 vim.keymap.set('v', '∆', ":m'>+1<CR>`<my`>gv=gv", { silent = true })
 vim.keymap.set('v', '˚', ':m-2<CR>==gv', { silent = true })
+vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', {})
+vim.keymap.set('i', '<C-s>', '<cmd>write<cr>', {})
 vim.opt.linebreak = true
