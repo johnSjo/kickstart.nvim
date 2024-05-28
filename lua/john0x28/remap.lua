@@ -11,5 +11,5 @@ vim.keymap.set('v', '∆', ":m'>+1<CR>`<my`>gv=gv", { silent = true })
 vim.keymap.set('v', '˚', ':m-2<CR>==gv', { silent = true })
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', {})
 vim.keymap.set('i', '<C-s>', '<cmd>write<cr>', {})
-vim.keymap.set('n', '<leader>f', '<cmd>Neotree<cr>', {})
+vim.keymap.set('n', '<leader>f', '<cmd>Neotree reveal<cr>', {})
 vim.opt.linebreak = true
