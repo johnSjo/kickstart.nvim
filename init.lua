@@ -636,6 +636,7 @@ require('lazy').setup({
         -- tsserver = {},
         prettierd = {},
         ts_ls = {},
+        prettier = {},
         --
 
         lua_ls = {
@@ -681,6 +682,7 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            print('BOO', server_name, server)
             require('lspconfig')[server_name].setup(server)
           end,
         },
@@ -727,7 +729,11 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript =  { 'prettierd', 'prettier', stop_after_first = true  },
+        typescript =  { 'prettierd', 'prettier',  stop_after_first = true },
         typescriptreact =  { 'prettierd', 'prettier',  stop_after_first = true },
+        scss =  { 'prettierd', 'prettier',  stop_after_first = true },
+        json =  { 'prettierd', 'prettier',  stop_after_first = true },
+        graphql =  { 'prettierd', 'prettier',  stop_after_first = true },
       },
     },
   },
@@ -943,7 +949,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps

@@ -21,4 +21,5 @@ vim.keymap.set('v', '˚', ':m-2<CR>==gv', { silent = true })
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', {})
 vim.keymap.set('i', '<C-s>', '<cmd>write<cr>', {})
 vim.keymap.set('n', '<leader>f', '<cmd>Neotree reveal<cr>', {})
+-- vim.keymap.set('n', '<leader>l', 'mF:%!eslint_d --stdin --fix-to-stdout --stdin-filename %<CR>`F', { noremap = true })
 vim.opt.linebreak = true

@@ -7,6 +7,8 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
+        typescriptreact = { 'eslint_d' },
+        typescript = { 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -53,6 +55,18 @@ return {
           if vim.opt_local.modifiable:get() then
             lint.try_lint()
           end
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
+        -- command = 'silent! EslintFixAll',
+        group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
+        callback = function()
+          -- Escape the file path to prevent shell globbing issues
+          local escaped_filename = vim.fn.shellescape(vim.api.nvim_buf_get_name(0))
+          -- Run eslint_d with the --fix flag, using the escaped filename
+          vim.cmd('silent! %!eslint_d --fix-to-stdout --stdin --stdin-filename ' .. escaped_filename)
         end,
       })
     end,
